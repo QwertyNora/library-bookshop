@@ -7,7 +7,10 @@ const databasePath = "./app/database/books.json";
 
 // CRUD operations
 
-// READ
+// ----- CREATE -----
+
+// ----- READ -----
+// Get all books
 router.get("/", async (req, res) => {
   const books = await readDatabaseFile(databasePath);
   let booksResponse = [...books];
