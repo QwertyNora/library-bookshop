@@ -1,0 +1,262 @@
+[
+    {
+        "title": "Harry Potter and the Philosopher's Stone",
+        "count": 5,
+        "isbn": "9780747532699",
+        "id": "001",
+        "description": "The first novel in the Harry Potter series and J.K. Rowling's debut novel.",
+        "publishingDate": 1997,
+        "author": {
+            "name": "J.K. Rowling",
+            "id": "abc"
+        },
+        "genres": "Fantasy, Fiction"
+    },
+    {
+        "title": "The Shining",
+        "count": 5,
+        "isbn": "9780307743657",
+        "id": "002",
+        "description": "A horror novel by Stephen King about a family staying in an isolated hotel.",
+        "publishingDate": 1977,
+        "author": {
+            "name": "Stephen King",
+            "id": "cde"
+        },
+        "genres": "Horror, Fiction"
+    },
+    {
+        "title": "The Subtle Art of Not Giving a F*ck",
+        "count": 5,
+        "isbn": "9780062457714",
+        "id": "003",
+        "description": "A self-help guide by Mark Manson that focuses on living a better life by caring less about more.",
+        "publishingDate": 2016,
+        "author": {
+            "name": "Mark Manson",
+            "id": "fgh"
+        },
+        "genres": "Self-help, Non-fiction"
+    },
+    {
+        "title": "Harry Potter and the Chamber of Secrets",
+        "count": 5,
+        "isbn": "9780747538493",
+        "id": "004",
+        "description": "The second novel in the Harry Potter series, featuring the young wizard Harry Potter.",
+        "publishingDate": 1998,
+        "author": {
+            "name": "J.K. Rowling",
+            "id": "abc"
+        },
+        "genres": "Fantasy, Fiction"
+    },
+    {
+        "title": "Carrie",
+        "count": 5,
+        "isbn": "9780307743664",
+        "id": "005",
+        "description": "Stephen King's first published novel, a horror story about a teenage girl with telekinetic powers.",
+        "publishingDate": 1974,
+        "author": {
+            "name": "Stephen King",
+            "id": "cde"
+        },
+        "genres": "Horror, Fiction"
+    },
+    {
+        "title": "Murder on the Orient Express",
+        "count": 5,
+        "isbn": "9780062693662",
+        "id": "006",
+        "description": "A detective novel by Agatha Christie featuring Hercule Poirot, set on a train journey across Europe.",
+        "publishingDate": 1934,
+        "author": {
+            "name": "Agatha Christie",
+            "id": "ijk"
+        },
+        "genres": "Mystery, Fiction"
+    },
+    {
+        "title": "Harry Potter and the Prisoner of Azkaban",
+        "count": 5,
+        "isbn": "9780439655484",
+        "id": "007",
+        "description": "The third book in the Harry Potter series, where Harry Potter faces the escaped prisoner, Sirius Black.",
+        "publishingDate": 1999,
+        "author": {
+            "name": "J.K. Rowling",
+            "id": "abc"
+        },
+        "genres": "Fantasy, Fiction"
+    },
+    {
+        "title": "The Stand",
+        "count": 5,
+        "isbn": "9780307743688",
+        "id": "008",
+        "description": "A post-apocalyptic horror/fantasy novel by Stephen King that outlines the total breakdown of society.",
+        "publishingDate": 1978,
+        "author": {
+            "name": "Stephen King",
+            "id": "cde"
+        },
+        "genres": "Horror, Fiction, Fantasy"
+    },
+    {
+        "title": "Everything Is F*cked: A Book About Hope",
+        "count": 5,
+        "isbn": "9780062888464",
+        "id": "009",
+        "description": "A book by Mark Manson that explores the paradoxes of human psychology and values.",
+        "publishingDate": 2019,
+        "author": {
+            "name": "Mark Manson",
+            "id": "fgh"
+        },
+        "genres": "Self-help, Non-fiction"
+    },
+    {
+        "title": "Harry Potter and the Goblet of Fire",
+        "count": 5,
+        "isbn": "9780747550990",
+        "id": "010",
+        "description": "The fourth novel in the Harry Potter series, featuring the Triwizard Tournament.",
+        "publishingDate": 2000,
+        "author": {
+            "name": "J.K. Rowling",
+            "id": "abc"
+        },
+        "genres": "Fantasy, Fiction"
+    },
+    {
+        "title": "It",
+        "count": 5,
+        "isbn": "9781501142970",
+        "id": "011",
+        "description": "A horror novel by Stephen King about seven children terrorized by a creature that exploits the fears of its victims.",
+        "publishingDate": 1986,
+        "author": {
+            "name": "Stephen King",
+            "id": "cde"
+        },
+        "genres": "Horror, Fiction"
+    },
+    {
+        "title": "And Then There Were None",
+        "count": 5,
+        "isbn": "9780062073488",
+        "id": "012",
+        "description": "A mystery novel by Agatha Christie about ten strangers who are invited to an island where they are systematically murdered.",
+        "publishingDate": 1939,
+        "author": {
+            "name": "Agatha Christie",
+            "id": "ijk"
+        },
+        "genres": "Mystery, Fiction"
+    },
+    {
+        "title": "Harry Potter and the Order of the Phoenix",
+        "count": 5,
+        "isbn": "9780439358071",
+        "id": "013",
+        "description": "The fifth book in the Harry Potter series, featuring the rise of the Phoenix Order.",
+        "publishingDate": 2003,
+        "author": {
+            "name": "J.K. Rowling",
+            "id": "abc"
+        },
+        "genres": "Fantasy, Fiction"
+    },
+    {
+        "title": "Misery",
+        "count": 5,
+        "isbn": "9781501143106",
+        "id": "014",
+        "description": "A psychological horror thriller novel by Stephen King about an author who is held captive by a deranged fan.",
+        "publishingDate": 1987,
+        "author": {
+            "name": "Stephen King",
+            "id": "cde"
+        },
+        "genres": "Horror, Thriller"
+    },
+    {
+        "title": "The Murder of Roger Ackroyd",
+        "count": 5,
+        "isbn": "9780062073563",
+        "id": "015",
+        "description": "A detective novel by Agatha Christie, featuring Hercule Poirot, in which he solves the murder of Roger Ackroyd.",
+        "publishingDate": 1926,
+        "author": {
+            "name": "Agatha Christie",
+            "id": "ijk"
+        },
+        "genres": "Mystery, Fiction"
+    },
+    {
+        "title": "Looking for Alaska",
+        "count": 5,
+        "isbn": "9780007523160",
+        "id": "016",
+        "description": "A young adult novel by John Green about a teenager named Miles Halter who goes to a boarding school where he meets Alaska Young.",
+        "publishingDate": 2005,
+        "author": {
+            "name": "John Green",
+            "id": "lmn"
+        },
+        "genres": "Young adult, Fiction"
+    },
+    {
+        "title": "The Fault in Our Stars",
+        "count": 5,
+        "isbn": "9780142424179",
+        "id": "017",
+        "description": "A novel by John Green about Hazel Grace Lancaster, a teenager with cancer, who falls in love with Augustus Waters.",
+        "publishingDate": 2012,
+        "author": {
+            "name": "John Green",
+            "id": "lmn"
+        },
+        "genres": "Romance, Young adult"
+    },
+    {
+        "title": "Paper Towns",
+        "count": 5,
+        "isbn": "9780142414934",
+        "id": "018",
+        "description": "A young adult novel by John Green about Quentin Jacobsen and his search for Margo Roth Spiegelman, his missing neighbor.",
+        "publishingDate": 2008,
+        "author": {
+            "name": "John Green",
+            "id": "lmn"
+        },
+        "genres": "Mystery, Young adult"
+    },
+    {
+        "title": "An Abundance of Katherines",
+        "count": 5,
+        "isbn": "9780142410707",
+        "id": "019",
+        "description": "A young adult novel by John Green about a former child prodigy, Colin Singleton, who only dates girls named Katherine.",
+        "publishingDate": 2006,
+        "author": {
+            "name": "John Green",
+            "id": "lmn"
+        },
+        "genres": "Young adult, Fiction"
+    },
+    {
+        "title": "Turtles All the Way Down",
+        "count": 5,
+        "isbn": "9780525555360",
+        "id": "020",
+        "description": "A novel by John Green about Aza Holmes, a young woman grappling with mental illness while investigating a billionaire’s disappearance.",
+        "publishingDate": 2017,
+        "author": {
+            "name": "John Green",
+            "id": "lmn"
+        },
+        "genres": "Young adult, Fiction"
+    }
+]

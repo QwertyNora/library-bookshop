@@ -23,5 +23,10 @@
         "name": "Agatha Christie",
         "id": "ijk",
         "yearOfBirth": 1958
+    },
+    {
+        "name": "John Green",
+        "id": "lmn",
+        "yearOfBirth": 1977
     }
 ]
