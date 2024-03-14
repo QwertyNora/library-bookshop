@@ -1,0 +1,27 @@
+[
+    {
+        "name": "J.K. Rowling",
+        "id": "abc",
+        "yearOfBirth": 1965
+    },
+    {
+        "name": "Stephen King",
+        "id": "cde",
+        "yearOfBirth": 1947
+    },
+    {
+        "name": "Mark Manson",
+        "id": "fgh",
+        "yearOfBirth": 1984
+    },
+    {
+        "name": "Mark Manson",
+        "id": "fgh",
+        "yearOfBirth": 1984
+    },
+    {
+        "name": "Agatha Christie",
+        "id": "ijk",
+        "yearOfBirth": 1958
+    }
+]
