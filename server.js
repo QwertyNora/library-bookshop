@@ -1,13 +1,9 @@
-const express = require("express");
-const cors = require("cors");
-const userRouter = require("./app/routes/users");
+const app = require("./app/app");
 
-const app = express();
+// use the PORT environment variable if it exists
+const port = process.env.PORT || 3000;
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-// Use imported router for all user requests
-app.use(userRouter);
-
-app.listen(3000, () => console.log("Listening on port:3000"));
+// start the server and listen on the port
+app.listen(port, () => {
+  console.log("Server is running on port " + port);
+});
