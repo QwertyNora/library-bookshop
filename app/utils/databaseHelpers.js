@@ -44,4 +44,5 @@ module.exports = {
   readDatabaseFile,
   writeDatabaseFile,
   generateUniqueId,
+  filterByGenre,
 };
