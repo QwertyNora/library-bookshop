@@ -32,6 +32,14 @@ function generateUniqueId() {
   return uuid.v4().slice(0, 8);
 }
 
+function filterByGenre(books = [], genre) {
+  return books.filter((book) =>
+    book.genres
+      .map((genre) => genre.toLowerCase())
+      .includes(genre.toLowerCase())
+  );
+}
+
 module.exports = {
   readDatabaseFile,
   writeDatabaseFile,
