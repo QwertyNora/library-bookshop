@@ -1,14 +1,16 @@
 const { Router } = require("express");
-const router = Router();
 
 const {
   readDatabaseFile,
   writeDatabaseFile,
 } = require("../utils/databaseHelpers");
+
 const { validateAuthor } = require("../utils/validationHelpers");
 
-const databasePath = "./app/database/authors.json";
+const authorDatabasePath = "./app/data/authors.json";
+const bookDatabasePath = "./app/data/books.json";
 
+const router = Router();
 // CRUD operations
 
 // ----- CREATE -----
@@ -29,10 +31,10 @@ router.post("/new-author", async (req, res) => {
   }
 
   try {
-    let authors = await readDatabaseFile(databasePath);
+    let authors = (await readDatabaseFile(authorDatabasePath)) || [];
     authors.push(newAuthor);
 
-    await writeDatabaseFile(databasePath, authors);
+    await writeDatabaseFile(authorDatabasePath, authors);
     res.status(201).json(newAuthor);
   } catch (error) {
     console.warn("Error creating author", error);
@@ -45,7 +47,7 @@ router.post("/new-author", async (req, res) => {
 // ----- READ -----
 
 router.get("/", async (req, res) => {
-  const authors = await readDatabaseFile(databasePath);
+  const authors = await readDatabaseFile(authorDatabasePath);
   let authorsResponse = [...authors];
 
   res.json(authorsResponse);

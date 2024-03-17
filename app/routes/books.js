@@ -14,12 +14,10 @@ const databasePath = "./app/database/books.json";
 // ----- CREATE -----
 // Create new book:
 router.post("/new-book", async (req, res) => {
-  //Get author from body
   const newBook = {
     ...req.body,
   };
 
-  // validate input fields
   const [errors, hasErrors] = validateBook(newBook);
   if (hasErrors) {
     return res.status(400).json({
@@ -44,8 +42,19 @@ router.post("/new-book", async (req, res) => {
 // ----- READ -----
 // Get all books
 router.get("/", async (req, res) => {
+  const { author } = req.query;
+
   const books = await readDatabaseFile(databasePath);
   let booksResponse = [...books];
+
+  if (author) {
+    console.log(author, typeof author);
+    const authorValue = author;
+    booksResponse = booksResponse.filter(
+      (book) => book.author.name == authorValue
+    );
+  }
+  //   console.log(author);
 
   res.json(booksResponse);
 });

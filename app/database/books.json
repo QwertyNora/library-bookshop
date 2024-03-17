@@ -271,5 +271,18 @@
       "id": "opq"
     },
     "genres": "Fantasy, Fiction"
+  },
+  {
+    "title": "Noras ska ut och fiska",
+    "count": 20,
+    "isbn": "9784287452666",
+    "id": "022",
+    "description": "The first novel about Nora's fishing journey",
+    "publishingDate": 2025,
+    "author": {
+      "name": "Nora Silfver",
+      "id": "opq"
+    },
+    "genres": "Fantasy, Fiction"
   }
 ]
