@@ -3,15 +3,55 @@ const { Router } = require("express");
 const {
   readDatabaseFile,
   writeDatabaseFile,
+  generateUniqueId,
 } = require("../utils/databaseHelpers");
 
-const { validateAuthor } = require("../utils/validationHelpers");
+const {
+  validateAuthor,
+  validateAuthorUpdate,
+} = require("../utils/validationHelpers");
 
-const authorDatabasePath = "./app/data/authors.json";
-const bookDatabasePath = "./app/data/books.json";
+const authorDatabasePath = "./app/database/authors.json";
+const bookDatabasePath = "./app/database/books.json";
 
 const router = Router();
-// CRUD operations
+
+// ----- READ -----
+
+router.get("/", async (req, res) => {
+  try {
+    const authors = (await readDatabaseFile(authorDatabasePath)) || [];
+    let authorsResponse = [...authors];
+
+    res.json(authorsResponse);
+  } catch (error) {
+    console.log("Error: getting authors", error.message);
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const authors = (await readDatabaseFile(authorDatabasePath)) || [];
+    const author = authors.find((author) => author.id == id);
+
+    if (!author) {
+      return (
+        res.status(404),
+        json({
+          message: "Author not found",
+        })
+      );
+    }
+
+    res.json(author);
+  } catch (error) {
+    console.log("Error: getting author", error.message);
+  }
+});
 
 // ----- CREATE -----
 
@@ -44,28 +84,46 @@ router.post("/new-author", async (req, res) => {
   }
 });
 
-// ----- READ -----
+// UPDATE Author
+router.put("/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const newAuthor = req.body;
+    const [errors, hasErrors] = validateAuthorUpdate(newAuthor, { id });
+    if (hasErrors) {
+      return res.status(400).json({
+        errors,
+      });
+    }
+    let authors = (await readDatabaseFile(authorDatabasePath)) || [];
+    const authorIndex = authors.findIndex((author) => author.id == id);
 
-router.get("/", async (req, res) => {
-  const authors = await readDatabaseFile(authorDatabasePath);
-  let authorsResponse = [...authors];
+    if (authorIndex === -1) {
+      return res.status(404).json({
+        message: "Author not found",
+      });
+    }
 
-  res.json(authorsResponse);
-});
+    if (authors[authorIndex].name !== newAuthor.name) {
+      let books = (await readDatabaseFile(bookDatabasePath)) || [];
+      books.forEach((book) => {
+        if (book.author.name === authors[authorIndex].name) {
+          book.author.name = newAuthor.name;
+        }
+      });
+      await writeDatabaseFile(bookDatabasePath, books);
+    }
+    authors[authorIndex] = newAuthor;
 
-router.get("/:id", (req, res) => {
-  //TODO: add get author logic here
-  res.status(404).send("Not implemented");
-});
-
-router.post("/", (req, res) => {
-  //TODO: add create author logic here
-  res.status(404).send("Not implemented");
-});
-
-router.put("/:id", (req, res) => {
-  //TODO: add update author logic here
-  res.status(404).send("Not implemented");
+    await writeDatabaseFile(authorDatabasePath, authors);
+    res.json(newAuthor);
+  } catch (error) {
+    console.log("error: updating author", error.message);
+    // Should be inacessible
+    res.status(500).json({
+      message: error.message,
+    });
+  }
 });
 
 router.delete("/:id", (req, res) => {

@@ -6,27 +6,27 @@
   },
   {
     "name": "Stephen King",
-    "id": "cde",
+    "id": "def",
     "yearOfBirth": 1947
   },
   {
     "name": "Mark Manson",
-    "id": "fgh",
+    "id": "ghi",
     "yearOfBirth": 1984
   },
   {
     "name": "Agatha Christie",
-    "id": "ijk",
+    "id": "jkl",
     "yearOfBirth": 1958
   },
   {
     "name": "John Green",
-    "id": "lmn",
+    "id": "mno",
     "yearOfBirth": 1977
   },
   {
-    "name": "Nora Silfver",
-    "id": "opq",
+    "name": "Nora Alice Silfver",
+    "id": "pqr",
     "yearOfBirth": 1998
   }
 ]
