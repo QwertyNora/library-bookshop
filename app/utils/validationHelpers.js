@@ -10,6 +10,16 @@ function validateAuthor(author) {
   return [Object.fromEntries(errors), errors.size > 0, errors];
 }
 
+function validateAuthorUpdate(author, oldAuthor) {
+  let errors = validateAuthor(author)[2];
+
+  if (author.id !== oldAuthor.id) {
+    errors.set("id", "ID cannot be changed");
+  }
+
+  return [Object.fromEntries(errors), errors.size > 0];
+}
+
 function validateBook(book) {
   let errors = {};
 
@@ -63,11 +73,11 @@ function validateBook(book) {
   return [errors, hasErrors];
 }
 
-function validateAuthorUpdate(author, oldAuthor) {
-  let errors = validateAuthor(author)[2];
+function validateBookUpdate(book, oldBook) {
+  let errors = validateBook(book)[2];
 
-  if (author.id !== oldAuthor.id) {
-    errors.set("id", "ID cannot be changed");
+  if (book.id !== oldBook.id) {
+    errors.set("id", "ID Cannnot be changed!");
   }
 
   return [Object.fromEntries(errors), errors.size > 0];
@@ -77,4 +87,5 @@ module.exports = {
   validateAuthor,
   validateBook,
   validateAuthorUpdate,
+  validateBookUpdate,
 };
