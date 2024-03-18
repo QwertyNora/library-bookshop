@@ -128,7 +128,6 @@ router.put("/:id", async (req, res) => {
 
 // Delete author
 router.delete("/:id", async (req, res) => {
-  //TODO: add delete authors logic here
   try {
     const id = req.params.id;
     let authors = (await readDatabaseFile(authorDatabasePath)) || [];
