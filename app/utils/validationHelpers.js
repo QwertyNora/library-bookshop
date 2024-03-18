@@ -1,22 +1,13 @@
 function validateAuthor(author) {
-  let errors = {};
-
-  if (!author) {
-    return {
-      author: "No user body submitted",
-    };
-  }
-
+  let errors = new Map();
   if (!author.name) {
-    errors.name = "No name submitted";
+    errors.set("name", "Name is required");
   }
-
   if (!author.yearOfBirth) {
-    errors.yearOfBirth = "No year of birth submitted";
+    errors.set("email", "Year of birth is required");
   }
 
-  const hasErrors = Object.keys(errors).length > 0;
-  return [errors, hasErrors];
+  return [Object.fromEntries(errors), errors.size > 0, errors];
 }
 
 function validateBook(book) {
@@ -72,7 +63,18 @@ function validateBook(book) {
   return [errors, hasErrors];
 }
 
+function validateAuthorUpdate(author, oldAuthor) {
+  let errors = validateAuthor(author)[2];
+
+  if (author.id !== oldAuthor.id) {
+    errors.set("id", "ID cannot be changed");
+  }
+
+  return [Object.fromEntries(errors), errors.size > 0];
+}
+
 module.exports = {
   validateAuthor,
   validateBook,
+  validateAuthorUpdate,
 };
