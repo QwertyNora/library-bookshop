@@ -13,9 +13,6 @@ const {
 
 const bookDatabasePath = "./app/database/books.json";
 
-// CRUD operations
-
-// ----- CREATE -----
 // Create new book:
 router.post("/new-book", async (req, res) => {
   try {
