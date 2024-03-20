@@ -59,4 +59,26 @@ router.get("/", async (req, res) => {
   res.json(booksResponse);
 });
 
+// Get book by ID
+router.get("/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const books = (await readDatabaseFile(databasePath)) || [];
+    const book = books.find((book) => book.id == id);
+
+    if (!book) {
+      return res.status(404).json({
+        message: "Book with given ID not found",
+      });
+    }
+
+    res.json(book);
+  } catch (error) {
+    console.log("error: getting book", error.message);
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
 module.exports = router;
