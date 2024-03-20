@@ -62,6 +62,8 @@ router.post("/new-author", async (req, res) => {
     ...req.body,
   };
 
+  newAuthor.id = generateUniqueId();
+
   // validate input fields
   const [errors, hasErrors] = validateAuthor(newAuthor);
   if (hasErrors) {
