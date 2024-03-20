@@ -15,21 +15,28 @@ const databasePath = "./app/database/books.json";
 // ----- CREATE -----
 // Create new book:
 router.post("/new-book", async (req, res) => {
-  const newBook = {
-    ...req.body,
-  };
-
-  newBook.id = generateUniqueId();
-
-  const [errors, hasErrors] = validateBook(newBook);
-  if (hasErrors) {
-    return res.status(400).json({
-      data: errors,
-    });
-  }
-
   try {
+    const newBook = {
+      ...req.body,
+    };
+
+    newBook.id = generateUniqueId();
+
+    const [errors, hasErrors] = validateBook(newBook);
+    if (hasErrors) {
+      return res.status(400).json({
+        data: errors,
+      });
+    }
+
     let books = await readDatabaseFile(databasePath);
+
+    if (books.some((book) => book.isbn === newBook.isbn)) {
+      return res.status(409).json({
+        message: "Book with this ISBN already exists",
+      });
+    }
+
     books.push(newBook);
 
     await writeDatabaseFile(databasePath, books);
