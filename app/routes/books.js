@@ -125,4 +125,80 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+// Update book - Loan a book
+router.put("/:id/loan", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const books = (await readDatabaseFile(bookDatabasePath)) || [];
+    const bookIndex = books.findIndex((book) => book.id == id);
+
+    if (bookIndex === -1) {
+      return res.status(404).json({
+        message: "Book not found",
+      });
+    }
+
+    if (books[bookIndex].count === 0) {
+      return res.status(400).json({
+        message: "No copies available",
+      });
+    }
+
+    books[bookIndex].count--;
+    await writeDatabaseFile(bookDatabasePath, books);
+    res.json(books[bookIndex]);
+  } catch (error) {
+    console.log("error: lending book", error.message);
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
+// Update book - return a book
+router.put("/:id/return", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const books = (await readDatabaseFile(bookDatabasePath)) || [];
+    const bookIndex = books.findIndex((book) => book.id == id);
+    if (bookIndex === -1) {
+      return res.status(404).json({
+        message: "Book not found",
+      });
+    }
+    books[bookIndex].count++;
+    await writeDatabaseFile(bookDatabasePath, books);
+    res.json(books[bookIndex]);
+  } catch (error) {
+    console.log("error: returning book", error.message);
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
+// Delete book
+router.delete("/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    let books = (await readDatabaseFile(bookDatabasePath)) || [];
+    const bookIndex = books.findIndex((book) => book.id == id);
+    if (bookIndex === -1) {
+      return res.status(404).json({
+        message: "Book not found",
+      });
+    }
+    books.splice(bookIndex, 1);
+
+    await writeDatabaseFile(bookDatabasePath, books);
+    res.status(204).end();
+  } catch (error) {
+    console.log("error: deleting book", error.message);
+    // Should be inacessible
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
 module.exports = router;
