@@ -284,5 +284,18 @@
       "id": "opq"
     },
     "genres": "Fantasy, Fiction"
+  },
+  {
+    "title": "Noras ska ut och fiska 2.0",
+    "count": 20,
+    "isbn": "9784287452666",
+    "id": "022",
+    "description": "The second novel about Nora's fishing journey",
+    "publishingDate": 2025,
+    "author": {
+      "name": "Nora Silfver",
+      "id": "bbb"
+    },
+    "genres": "Fantasy, Fiction"
   }
 ]
