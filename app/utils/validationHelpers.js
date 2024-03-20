@@ -74,7 +74,7 @@ function validateBook(book) {
 }
 
 function validateBookUpdate(book, oldBook) {
-  let errors = validateBook(book)[2];
+  let errors = validateBook(book)[2] || new Map();
 
   if (book.id !== oldBook.id) {
     errors.set("id", "ID Cannnot be changed!");
