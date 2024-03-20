@@ -4,6 +4,7 @@ const router = Router();
 const {
   readDatabaseFile,
   writeDatabaseFile,
+  generateUniqueId,
 } = require("../utils/databaseHelpers");
 const { validateBook } = require("../utils/validationHelpers");
 
@@ -17,6 +18,8 @@ router.post("/new-book", async (req, res) => {
   const newBook = {
     ...req.body,
   };
+
+  newBook.id = generateUniqueId();
 
   const [errors, hasErrors] = validateBook(newBook);
   if (hasErrors) {
@@ -80,5 +83,7 @@ router.get("/:id", async (req, res) => {
     });
   }
 });
+
+//
 
 module.exports = router;
